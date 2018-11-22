@@ -59,22 +59,22 @@ class Create extends Component {
 										<input type="text" class="form-control" name="name" value={name} id="name" onChange={this.onChange} placeholder="Name"/>
 									</div>
 										
-									<div class="form-control">
+									<div class="form-group">
 										<label for="address">Address:</label>
 										<input type="text" class="form-control" name="address" value={address} id="address" onChange={this.onChange} placeholder="Address"/>
 									</div>
 									
-									<div class="form-control">
+									<div class="form-group">
 										<label for="city">City:</label>
 										<input type="text" class="form-control" name="city" value={city} id="city" onChange={this.onChange} placeholder="City"/>
 									</div>
 									
-									<div class="form-control">
+									<div class="form-group">
 										<label for="phone">Phone:</label>
 										<input type="text" class="form-control" name="phone" value={phone} id="phone" onChange={this.onChange} placeholder="Phone"/>
 									</div>
 									
-									<div class="form-control">
+									<div class="form-group">
 										<label for="email">Email:</label>
 										<input type="text" class="form-control" name="email" value={email} id="email" onChange={this.onChange} placeholder="Email"/>
 									</div>

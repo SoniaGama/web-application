@@ -3,9 +3,6 @@ import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 import axios from 'axios';
 
-// import logo from './logo.svg';
-// import './App.css';
-
 class App extends Component {
 	
 	constructor(props){
@@ -19,34 +16,22 @@ class App extends Component {
 		axios.get('/users')
 			.then(response => {
 				this.setState({users: response.data});
-				console.log(this.state.contacts);
+				console.log(this.state.users);
 			});
 	}
-	
-	/*
-	componentDidMount(){
-		fetch('/users')
-		.then(reponse => {
-			this.setState({users: response});
-			Console.log(this.setstate.users);
-		})
-		.catch(error => console.log(error));
-	}
-	*/
-	
+		
   render() {
     return (
     		
-    		// remplazar...
     	<div class="container">
           <div class="panel panel-default">
              <div class="panel-heading">
                 <h3 class="panel-title">
-                  CONTACTS LIST
+                  User List
                 </h3>
               </div>
               <div class="panel-body">
-                <h4><Link to="/create"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> Add Contact</Link></h4>
+                <h4><Link to="/create">Add User</Link></h4>
                 <table class="table table-stripe">
                   <thead>
                     <tr>
@@ -55,10 +40,10 @@ class App extends Component {
                     </tr>
                   </thead>
                   <tbody>
-                    {this.state.contacts.map(c =>
+                    {this.state.users.map(result =>
                       <tr>
-                        <td><Link to={`/show/${c.id}`}>{c.name}</Link></td>
-                        <td>{c.address}</td>
+                        <td><Link to={`/show/${result.id}`}>{result.name}</Link></td>
+                        <td>{result.address}</td>
                       </tr>
                     )}
                   </tbody>
@@ -67,15 +52,6 @@ class App extends Component {
             </div>
           </div>
     		  	
-    		
-    		
-    		/*
-			  <div className="App"> <header className="App-header"> <img
-			  src={logo} className="App-logo" alt="logo" /> <p> Edit <code>src/App.js</code>
-			  and save to reload. </p> <a className="App-link"
-			  href="https://reactjs.org" target="_blank" rel="noopener
-			 noreferrer" > Learn React </a> </header> </div>
-			 */
     );
   }
 }
