@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
+//import ReactDOM from 'react-dom';
 import {Link} from 'react-router-dom';
-// import axios from 'axios';
+import axios from 'axios';
 
 // import logo from './logo.svg';
 // import './App.css';
@@ -15,12 +15,15 @@ class App extends Component {
 		};
 	}
 	
-	/*
-	 componentDidMount() { axios.get('/contacts') .then(res => {
-	 this.setState({ contacts: res.data }); console.log(this.state.contacts);
-	 }); }
-	 */
+	componentDidMount(){
+		axios.get('/users')
+			.then(response => {
+				this.setState({users: response.data});
+				console.log(this.state.contacts);
+			});
+	}
 	
+	/*
 	componentDidMount(){
 		fetch('/users')
 		.then(reponse => {
@@ -29,6 +32,7 @@ class App extends Component {
 		})
 		.catch(error => console.log(error));
 	}
+	*/
 	
   render() {
     return (
@@ -66,11 +70,11 @@ class App extends Component {
     		
     		
     		/*
-			 * <div className="App"> <header className="App-header"> <img
-			 * src={logo} className="App-logo" alt="logo" /> <p> Edit <code>src/App.js</code>
-			 * and save to reload. </p> <a className="App-link"
-			 * href="https://reactjs.org" target="_blank" rel="noopener
-			 * noreferrer" > Learn React </a> </header> </div>
+			  <div className="App"> <header className="App-header"> <img
+			  src={logo} className="App-logo" alt="logo" /> <p> Edit <code>src/App.js</code>
+			  and save to reload. </p> <a className="App-link"
+			  href="https://reactjs.org" target="_blank" rel="noopener
+			 noreferrer" > Learn React </a> </header> </div>
 			 */
     );
   }

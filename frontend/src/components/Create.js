@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import ReactDOM from 'react-dom';
+//import ReactDOM from 'react-dom';
 import {Link} from 'react-router-dom';
 import axios from 'axios';
 
@@ -18,11 +18,11 @@ class Create extends Component {
 	// cuando detecta un cambio de estado
 	onChange = (e) => {
 		const state = this.state;
-		state[e.target.neme] = e.target.value;
+		state[e.target.name] = e.target.value;
 		this.seState(state);
 		
 		console.log(e);
-		console.log(state);
+		console.log(this.state);
 	}
 	
 	// envia
@@ -31,7 +31,7 @@ class Create extends Component {
 		const {name, address, city, phone, email} = this.state;
 				
 		console.log(e);
-		console.log(state);
+		console.log(this.state);
 		
 		axios.post('./users', { name, address, city, phone, email })
 			.then(result => this.props.history.push("/"));
@@ -71,15 +71,15 @@ class Create extends Component {
 									
 									<div class="form-control">
 										<label for="phone">Phone:</label>
-										<input type"text" class="form-control" name="phone" value={phone} id="phone" onChange={this.onChange} placeholder="Phone"/>
+										<input type="text" class="form-control" name="phone" value={phone} id="phone" onChange={this.onChange} placeholder="Phone"/>
 									</div>
 									
 									<div class="form-control">
 										<label for="email">Email:</label>
-										<input type"text" class="form-control" name"email" value{email} id="email" onChange={this.onChange} placeholder="Email"/>
+										<input type="text" class="form-control" name="email" value={email} id="email" onChange={this.onChange} placeholder="Email"/>
 									</div>
 										
-									<Button type="submit" class="btn btn-default">Submit</Button>
+									<button type="submit" class="btn btn-default">Submit</button>
 								</form>
 							</div>
 							

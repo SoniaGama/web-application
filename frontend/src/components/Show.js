@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import ReactDOM from 'react-dom';
+//import ReactDOM from 'react-dom';
 import {Link} from 'react-router-dom';
 import axios from 'axios';
 
@@ -8,7 +8,7 @@ class Show extends Component {
 	constructor(props){
 		super(props);
 		this.state ={
-				user={}
+				user:{}
 		};		
 	}	
 	
@@ -22,7 +22,7 @@ class Show extends Component {
 	}
 	
 	delete(id){
-		consle.log(id);
+		console.log(id);
 		axios.delete('/users/' + id)
 			.then(result => this.props.history.push("/"));
 	}
@@ -59,7 +59,7 @@ class Show extends Component {
 								<dd>{this.state.user.email}</dd>
 							</dl>
 							
-							<Link to={'/edit/${this.state.user.id}'} class="btn btn-success">Edit</Link>
+							<Link to={`"/edit/"${this.state.user.id}`} class="btn btn-success">Edit</Link>
 							<button onClick={this.delete.bind(this, this.state.user.id)} class="btn btn-danger">Delete</button>
 							
 						</div>						
